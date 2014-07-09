@@ -48,3 +48,41 @@
 .next {
 	margin-left: 600px;
 }
+nav ul {
+	list-style-type: none;
+	margin-top: -30px;
+	text-align: right;
+}
+
+nav li {
+	display: inline-block;
+
+}
+
+#cart {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+nav {
+	background-color: #869FA3;
+	border: solid 2px;
+}
+
+#logo a {
+	text-decoration: none;
+	margin-left: 10px;
+	font-family: 'Cabin';
+	font-size: 30px;
+	color: #1F3033;
+}
+
+#logo a:visited {
+	color: #1F3033;
+}
+
+#product, #allproducts, #cards, #users {
+margin-left: 5px;
+margin-right: 5px;
+}
+

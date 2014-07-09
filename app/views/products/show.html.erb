@@ -1,3 +1,4 @@
+<div id="product">
 <div id="item">
 <h1><%= @product.name %></h1>
 
@@ -28,8 +29,9 @@
 	<br>
 	<%= button_tag("Add to Order") %>
 <% end %>
+<br>
 </div>
-
+<hr>
 <br>
 
 <%= link_to "Back to Main Shopping", '/products' %>
@@ -37,7 +39,7 @@
 <br>
 <span class="prev"><%= link_to("< Previous", @product.previous) if @product.previous %></span>
 <span class="next"><%= link_to("Next >", @product.next) if @product.next %></span> 
-    
+</div>    
 
    <!-- "<option></option><option>1</option><option>2</option><option>3</option><option>4</option>
 			<option>5</option><option>6</option><option>7</option><option>8</option>"  -->
