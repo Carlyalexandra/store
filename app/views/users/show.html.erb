@@ -1,0 +1,28 @@
+
+<h1>Welcome to your Account:</h1>
+<%= @user.fname %>
+<%= @user.lname %> <br>
+<%= @user.email %> <br>
+<%= @user.address %>
+<br>
+<p> <%= link_to "Edit Info", edit_user_path(@user) %></p>
+<br><br>
+
+<h2>Credit Card Information</h2>
+<%= link_to "Add a Card", new_user_card_path(@user) %> <br>
+
+
+<br>
+
+<div id="cards">
+<h3>Cards Already on File:</h3>
+<ul>
+	<% @user.cards.each do |card| %>
+	<li><%= link_to "#{card.nickname}", user_card_path(user_id: @user.id, id: card.id)  %></li>
+	<% end %>
+</ul>
+</div>
+<br>
+<%= image_tag "shopping_cart.png" %> 
+<span id="cont">
+<%= link_to "Continue Shopping", '/products' %></span>

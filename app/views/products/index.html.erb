@@ -1,0 +1,17 @@
+<h1>WELCOME TO FURNITURE FOR LESS</h1>
+<div id="allproducts">
+	<h2> Items for sale...</h2>
+	<% @productall.each do |product| %>
+	<li><%= link_to "#{product.name}", product_path(product) %> <br>
+	<img src= <%= "#{product.photo}" %> alt="">
+     
+	</li>
+	<% end %>
+</div>
+
+<br>
+
+
+
+
+<%= link_to "Back", :back %>

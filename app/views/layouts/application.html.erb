@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav>
+	<h1 id="logo"> <a href='/'>Furniture Store...</a></h1>
+	
+		<% if current_user %>
+		<p id="welcome">Welcome <%= link_to "#{current_user.fname}", user_path(current_user) %>  |  <%= link_to "Log Out", logout_path, method: "delete" %></p>
+		<% else %>
+		<p><%= link_to "Sign In", login_path %> | <%= link_to "Sign Up", new_user_path %></p>
+		<% end %>	
+	</nav>
+<hr>
+
+<div id="flash">
+	<%= flash[:notice] if flash[:notice] %>
+	<%= flash[:alert] if flash[:alert] %> 
+</div>
+
+
+<%= yield %>
+
+</body>
+</html>

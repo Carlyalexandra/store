@@ -1,0 +1,19 @@
+
+<h1>Get an account here!</h1>
+<%= form_for(@user) do |f| %>
+	<%= f.label :first_name %>
+	<%= f.text_field :fname %> <br>
+	<%= f.label :last_name %>
+	<%= f.text_field :lname %> <br>
+	<%= f.label :email %>
+	<%= f.text_field :email %> <br>
+	<%= f.label :address %>
+	<%= f.text_area :address %> <br>
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+	<%= f.submit :create %>
+
+
+<% end %>
+<br>
+<%= link_to "Back", :back %>

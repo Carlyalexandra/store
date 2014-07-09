@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  card_number: 1
+  security_code: 1
+  zipcode: 1
+
+two:
+  user_id: 
+  card_number: 1
+  security_code: 1
+  zipcode: 1
