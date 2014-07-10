@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 get 'sessions/new'
-
+delete 'orders/:order_id/remove/:id', to: 'orders#remove', as: 'remove_item'
 root 'products#index'
 
 get 'login' => 'sessions#new'
@@ -11,7 +11,7 @@ delete 'logout' => 'sessions#destroy'
 
 
 
-  resources :users, except: [:index] do
+  resources :users, except: [:index, :new] do
       resources :orders, :cards, except: [:index] 
   end
 

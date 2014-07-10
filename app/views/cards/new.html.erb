@@ -1,8 +1,9 @@
+<div id="addcard">
 <h1>Add a Card here</h1>
 
 <%= form_for(@card, url: user_cards_path(@user)) do |f| %>
 <div class="field">
-    <%= f.label :Card_name %>
+    <%= f.label :Card_nickname %>
     <%= f.text_field :nickname%>
   </div>  
   <div class="field">
@@ -25,4 +26,6 @@
   <div class="actions"><%= f.submit "Submit" %></div>
 <% end %>
 <br>
+<hr>
 <%= link_to "Back", :back %>
+</div>

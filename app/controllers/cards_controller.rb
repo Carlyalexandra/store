@@ -40,6 +40,15 @@ class CardsController < ApplicationController
   end
 
   def destroy
+     @card = Card.find(params[:id])
+     @user = User.find(session[:user_id])
+    if @card.destroy
+      flash[:notice] = "Card deleted"
+      redirect_to @user
+    else 
+      flash[:alert] = "There was a problem"
+      redirect_to @card
+    end
   end
 
   private

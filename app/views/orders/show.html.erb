@@ -1,2 +1,37 @@
+<div id="shopping">
 <h1>MY SHOPPING CART</h1>
-<%= @order.products %>
+<div id="display">
+<ul>
+<% if @order.products.any? %>
+	<% @order.orders_products.each do |op| %>
+		<li><%= op.product.name %> | (<%= link_to "Remove", remove_item_path(@order, op), method: "delete" %>)  
+	
+		<%= form_tag(user_order_path(@user, @order), method: :patch, :style => "display:inline;" ) do %>
+			<%= text_field_tag :quantity, op.quantity %>
+			<%= hidden_field_tag :orders_products, op.id %>
+			<%= button_tag :Update %>
+		<% end %> 
+		</li> <br>
+
+	
+	<% end %>
+<% else %>
+	<li>No products yet :(</li>
+<% end %>
+</ul>
+</div>
+</div>
+<div id="checkout">
+	<h3>CLICK HERE TO SELECT WHICH CARD YOU ARE GOING TO USE.</h3>
+	<ul>
+	<% @user.cards.each do |card| %>
+	<li><%= card.nickname %></li>
+	<% end %>
+</ul>
+	<h3>CLICK HERE TO BUY</h3>
+	<%= button_tag :Buy %>
+
+
+</div>
+<hr>
+<%= link_to "Back to your account",  user_path(@user) %>

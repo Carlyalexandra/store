@@ -3,7 +3,9 @@
 <h1><%= @card.nickname %></h1>
 <p><%= @card.full_name %></p>
 <p>
- XXXX-XXXX-XXXX-<%= @card.card_number.to_s[-4..-1] %>  
+ XXXX-XXXX-XXXX-<%= @card.card_number.to_s[-4..-1] %>
+
+ | (<%= link_to "Delete", user_card_path(id: @card.id), method: "delete" %>)   
 <hr>
 <p>UPDATE INFO:</p>
 <%= form_for(@card, url: user_card_path(user_id: @user.id, id: @card.id), method: "patch") do |f| %>

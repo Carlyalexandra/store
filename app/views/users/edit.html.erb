@@ -1,4 +1,4 @@
-
+<div id="edit">
 <h1>Edit Account Information</h1>
 <%= form_for(@user) do |f| %>
 	<%= f.label :first_name %>
@@ -7,13 +7,17 @@
 	<%= f.text_field :lname %> <br>
 	<%= f.label :email %>
 	<%= f.text_field :email %> <br>
-	<%= f.label :address %>
-	<%= f.text_area :address %> <br>
 	<%= f.label :password %>
 	<%= f.password_field :password %>
+	<h3>Add Shipping Address:</h3>
+	<%= f.label :address %>
+	<%= f.text_area :address %> <br>
+
 	<%= f.submit :update %>
 
 
 <% end %>
 <br>
+<hr>
 <%= link_to "Back", :back %>
+</div>

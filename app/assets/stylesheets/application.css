@@ -81,8 +81,105 @@ nav {
 	color: #1F3033;
 }
 
-#product, #allproducts, #cards, #users {
+#product, #allproducts, #cards, #users, #edit, #addcard, #shopping {
 margin-left: 5px;
 margin-right: 5px;
 }
+
+#start {
+	width: 400px;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	margin-left: 30px;
+}
+
+#start input, #addcard input {
+	border-radius: 5px;
+}
+
+#edit input, textarea {
+	border-radius: 5px;
+}
+
+#edit textarea {
+	width: 250px;
+	height: 60px;
+}
+
+#shopping input {
+	width: 20px;
+}
+
+#shopping li {
+	border:solid 1px;
+	list-style-type:none;
+	padding: 15px;
+	width: 400px;
+	font-size: 20px;
+
+}
+
+hr {
+	clear: both;
+}
+
+#shopping a {
+	font-size: 12px;
+}
+
+#checkout, #display {
+	float:left;
+	width: 600px;
+}
+
+#checkout button {
+	-moz-box-shadow:inset 1px 0px 22px 0px #97c4fe;
+	-webkit-box-shadow:inset 1px 0px 22px 0px #97c4fe;
+	box-shadow:inset 1px 0px 22px 0px #97c4fe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0) );
+	background:-moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	background-color:#3d94f6;
+	-webkit-border-top-left-radius:17px;
+	-moz-border-radius-topleft:17px;
+	border-top-left-radius:17px;
+	-webkit-border-top-right-radius:17px;
+	-moz-border-radius-topright:17px;
+	border-top-right-radius:17px;
+	-webkit-border-bottom-right-radius:17px;
+	-moz-border-radius-bottomright:17px;
+	border-bottom-right-radius:17px;
+	-webkit-border-bottom-left-radius:17px;
+	-moz-border-radius-bottomleft:17px;
+	border-bottom-left-radius:17px;
+	text-indent:0;
+	border:1px solid #337fed;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	font-style:normal;
+	height:43px;
+	line-height:43px;
+	width:104px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #1570cd;
+}
+#checkout button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
+	background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+	background-color:#1e62d0;
+}#checkout button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+
 
