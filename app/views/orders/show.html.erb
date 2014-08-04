@@ -4,13 +4,16 @@
 <ul>
 <% if @order.products.any? %>
 	<% @order.orders_products.each do |op| %>
-		<li><%= op.product.name %> | (<%= link_to "Remove", remove_item_path(@order, op), method: "delete" %>)  
-	
+		<li>(<%= link_to "Delete", remove_item_path(@order, op), method: "delete" %>) | <%= op.product.name %>, at
+	<%= number_to_currency(op.product.price,:unit => "$") %>&nbsp
 		<%= form_tag(user_order_path(@user, @order), method: :patch, :style => "display:inline;" ) do %>
 			<%= text_field_tag :quantity, op.quantity %>
 			<%= hidden_field_tag :orders_products, op.id %>
 			<%= button_tag :Update %>
-		<% end %> 
+		<% end %> &nbsp&nbsp
+		<p>Total:</p>
+		<%= number_to_currency(op.subtotal, :unit => "$")  %>
+
 		</li> <br>
 
 	
@@ -22,15 +25,24 @@
 </div>
 </div>
 <div id="checkout">
-	<h3>CLICK HERE TO SELECT WHICH CARD YOU ARE GOING TO USE.</h3>
+	<h2><u>TOTAL COST OF THE ORDER:</u></h2>
+	<h2><%= number_to_currency(@order.total, :unit => "$") %></h2>
+
+	<% unless @order.card %>
+	<h3>CLICK HERE TO SELECT WHICH CARD TO USE</h3>
 	<ul>
 	<% @user.cards.each do |card| %>
-	<li><%= card.nickname %></li>
+	<li><%= link_to card.nickname, select_card_path(@user, @order, card), method: :patch %></li>
+	<% end %>
+	<% else %>
+	<h3>Using this card:</h3>
+	<p><%= @order.card.nickname %> 
+	<p>(<%= link_to "Click here to change your card selection.", remove_card_path(@user, @order, @order.card), method: "delete" %>)</p>
 	<% end %>
 </ul>
 	<h3>CLICK HERE TO BUY</h3>
-	<%= button_tag :Buy %>
-
+	<br>
+	<%= button_to :Buy, shipped_order_path(@user, @order) %>
 
 </div>
 <hr>

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-before_action :set_user, only: [:new, :create, :show, :edit, :update]
-before_action :set_order, only: [:show, :edit, :update]
+before_action :set_user, only: [:new, :create, :show, :edit, :update, :shipped]
+before_action :set_order, only: [:show, :edit, :update, :detroy]
 
   def index
   end
@@ -32,8 +32,9 @@ before_action :set_order, only: [:show, :edit, :update]
 
   def remove
     @op = OrdersProduct.find(params[:id])
-    @op.delete
+     @op.delete
     redirect_to user_order_path(session[:user_id], params[:order_id]), notice: 'Item removed'
+ 
   end
 
   def show
@@ -41,6 +42,27 @@ before_action :set_order, only: [:show, :edit, :update]
 
   def edit
   end
+
+  def select_card
+    @order = Order.find(params[:order_id])
+    if @order.update(card_id: params[:id])
+      redirect_to user_order_path(session[:user_id], params[:order_id]), notice: 'Card added'
+    else
+      redirect_to user_order_path(session[:user_id], params[:order_id]), notice: 'Something went wrong :('
+    end
+  end
+
+  def remove_card
+  @order = Order.find(params[:order_id])
+  @order.card = nil
+  if @order.save
+      redirect_to user_order_path(session[:user_id], params[:order_id]), notice: 'Card added'
+  else
+    redirect_to user_order_path(session[:user_id], params[:order_id]), notice: 'Something went wrong :('
+  end
+  
+  end 
+
 
    def update 
    @op = OrdersProduct.find(params[:orders_products])
@@ -53,6 +75,18 @@ before_action :set_order, only: [:show, :edit, :update]
       end
    end
 
+   def shipped
+   @order = Order.find(params[:id])
+   @order.shipped = true
+    if @order.save
+      flash[:notice] = "Order sent"
+      redirect_to user_path(@user)
+    else 
+      flash[:alert] = "There was a problem"
+      redirect_to user_path(@user)
+   end
+ end
+
 private
    def order_params
   	params.require(:order).permit(:shipped)
@@ -64,6 +98,10 @@ private
 
   def set_order
     @order = Order.find(params[:id])
+  end
+
+  def subtotal
+    @order
   end
 
 end
