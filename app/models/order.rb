@@ -5,7 +5,6 @@ class Order < ActiveRecord::Base
   has_many :products, through: :orders_products
 
 	
-	validates_presence_of :face
 
   
 
